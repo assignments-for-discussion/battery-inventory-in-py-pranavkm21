@@ -4,17 +4,18 @@ def count_batteries_by_usage(cycles):
     lowCount=0
     mediumCount=0
     highCount=0
-    
-    for i in range(len(cycles)):
-        if cycles[i]<400:
-            lowCount+=1
-        if 400<=cycles[i] and cycles[i]<=919:
-            mediumCount+=1
-        if cycles[i]>=920:
-            highCount+=1
-    
-    #return the values in the form of a list
-    
+    #Checking for valid input
+    if isinstance(cycles, list):
+        for i in range(len(cycles)):
+            if cycles[i]<400:
+                lowCount+=1
+            if 400<=cycles[i] and cycles[i]<=919:
+                mediumCount+=1
+            if cycles[i]>=920:
+                highCount+=1
+    else:
+        print("Invalid datatype")
+    #return the values in the form of a dictionary
     return {
         "lowCount": lowCount,
         "mediumCount": mediumCount,
